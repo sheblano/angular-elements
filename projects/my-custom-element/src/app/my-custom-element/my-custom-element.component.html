@@ -1,0 +1,11 @@
+<section>
+  <h3>my-custom-element built by Angular</h3>
+  <div class="message-container">
+    input:
+    <span id="message"> {{ messageToDisplay ?? "no input passed" }} </span>
+  </div>
+  <button (click)="onClick($event)">send output</button>
+  <div class="body-container">
+    <ng-content></ng-content>
+  </div>
+</section>

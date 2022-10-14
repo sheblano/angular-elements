@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build:custom-component": "npm run build myCustomElement -- --output-hashing none && npm run build:custom-component:concat",
+    "build:custom-component:concat": "cat dist/my-custom-element/runtime.js dist/my-custom-element/polyfills.js dist/my-custom-element/main.js > dist/my-custom-element/my-custom-element.js"
   },
   "private": true,
   "dependencies": {
@@ -14,6 +16,7 @@
     "@angular/common": "^14.0.0",
     "@angular/compiler": "^14.0.0",
     "@angular/core": "^14.0.0",
+    "@angular/elements": "^14.2.0",
     "@angular/forms": "^14.0.0",
     "@angular/platform-browser": "^14.0.0",
     "@angular/platform-browser-dynamic": "^14.0.0",
@@ -23,6 +26,7 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "^14.0.7",
     "@angular/cli": "~14.0.6",
     "@angular/compiler-cli": "^14.0.0",
     "@types/jasmine": "~4.0.0",

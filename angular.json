@@ -3,5 +3,197 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "myCustomElement": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/my-custom-element",
+      "sourceRoot": "projects/my-custom-element/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/my-custom-element",
+            "index": "projects/my-custom-element/src/index.html",
+            "main": "projects/my-custom-element/src/main.ts",
+            "polyfills": "projects/my-custom-element/src/polyfills.ts",
+            "tsConfig": "projects/my-custom-element/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/my-custom-element/src/favicon.ico",
+              "projects/my-custom-element/src/assets"
+            ],
+            "styles": ["projects/my-custom-element/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/my-custom-element/src/environments/environment.ts",
+                  "with": "projects/my-custom-element/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "myCustomElement:build:production"
+            },
+            "development": {
+              "browserTarget": "myCustomElement:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "myCustomElement:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/my-custom-element/src/test.ts",
+            "polyfills": "projects/my-custom-element/src/polyfills.ts",
+            "tsConfig": "projects/my-custom-element/tsconfig.spec.json",
+            "karmaConfig": "projects/my-custom-element/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/my-custom-element/src/favicon.ico",
+              "projects/my-custom-element/src/assets"
+            ],
+            "styles": ["projects/my-custom-element/src/styles.scss"],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "myCustomBtn": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/my-custom-btn",
+      "sourceRoot": "projects/my-custom-btn/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/my-custom-btn",
+            "index": "projects/my-custom-btn/src/index.html",
+            "main": "projects/my-custom-btn/src/main.ts",
+            "polyfills": "projects/my-custom-btn/src/polyfills.ts",
+            "tsConfig": "projects/my-custom-btn/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/my-custom-btn/src/favicon.ico",
+              "projects/my-custom-btn/src/assets"
+            ],
+            "styles": ["projects/my-custom-btn/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/my-custom-btn/src/environments/environment.ts",
+                  "with": "projects/my-custom-btn/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "myCustomBtn:build:production"
+            },
+            "development": {
+              "browserTarget": "myCustomBtn:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "myCustomBtn:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/my-custom-btn/src/test.ts",
+            "polyfills": "projects/my-custom-btn/src/polyfills.ts",
+            "tsConfig": "projects/my-custom-btn/tsconfig.spec.json",
+            "karmaConfig": "projects/my-custom-btn/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/my-custom-btn/src/favicon.ico",
+              "projects/my-custom-btn/src/assets"
+            ],
+            "styles": ["projects/my-custom-btn/src/styles.scss"],
+            "scripts": []
+          }
+        }
+      }
+    }
   }
 }
